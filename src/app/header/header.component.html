@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-5">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" (click)="showUserPage=false; logedAlert = false; failAlert = false; showHomePageMethod()">InfoSports</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Volleyball</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Football</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Basketball</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Baseball</a>
+          </li>
+        </ul>
+    </div>
+    <a type="button" class="btn btn-secondary nav-item" aria-current="page" (click)="showUserPage=true; showUserPageMethod()">{{username}}</a>
+    <!--  -->
+    </div>
+  </nav>
+
+  <div class="container mt-3" *ngIf="showUserPage">
+    <div class="alert alert-success text-center" *ngIf="logedAlert">Sesión iniciada correctamente</div>
+    <div class="alert alert-danger text-center" *ngIf="failAlert">No se ha podido iniciar sesión</div>
+  </div>
+  <app-user *ngIf="showUserPage && !userLoged" (updateHeader)="update($event)">
+  </app-user>
+  
+  <app-profile 
+  *ngIf="showUserPage && userLoged" 
+  [user]="this.user"
+  (updateUserEvent)="editUser($event)"
+  (LogOutEvent)="logOut()"
+  >
+  </app-profile>

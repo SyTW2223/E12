@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="main-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="../../assets/descarga.jpeg" class="rounded-circle p-1 bg-primary" width="110">
+                            <div class="mt-3">
+                                <h4>{{user.name}}</h4>
+                                <p class="text-secondary mb-1">Amante del football</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body" (submit)="update()">
+                        <h4 class="text-center mb-4">Datos</h4>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Nombre</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{user.name}}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Nombre de usuario</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{user.username}}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Correo electrónico</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{user.email}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-end m-3">
+                    <button class="btn btn-danger align-self-end" (click)="logOut()">Cerrar sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

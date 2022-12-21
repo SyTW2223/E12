@@ -1,0 +1,32 @@
+<h2 class="text-center">Registro de usuario</h2>
+<br>
+<div class="row align-items-center">
+  <div class="col"></div>
+  <form class="col-6" (submit)="create()">
+    <div class="mb-3">
+      <label for="SignUpInputEmail" class="form-label">Correo electrónico</label>
+      <input type="email" class="form-control" id="SignUpInputEmail" aria-describedby="emailHelp" name="email" [(ngModel)]="newUser.email">
+      <div id="emailHelp" class="form-text">Nunca compartiremos tu correo electrónico con nadie.</div>
+    </div>
+    <div class="mb-3">
+      <label for="SignUpInputUserName" class="form-label">Usuario</label>
+      <input type="text" class="form-control" id="SignUpInputUserName" aria-describedby="userNameHelp" name="username" [(ngModel)]="newUser.username">
+    </div>
+    <div class="mb-3">
+      <label for="SignUpInputName" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="SignUpInputName" aria-describedby="nameHelp" name="name" [(ngModel)]="newUser.name">
+    </div>
+    <div class="mb-3">
+      <label for="SignUpInputPassword" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="SignUpInputPassword" name="password" [(ngModel)]="newUser.password">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="SignUpCheck">
+      <label class="form-check-label" for="SignUpCheck">Acepta las condiciones de uso</label>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success align-center mt-3">Enviar</button>
+    </div>
+  </form>
+  <div class="col"></div>
+</div>

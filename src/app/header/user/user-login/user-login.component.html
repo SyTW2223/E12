@@ -1,0 +1,19 @@
+<h2 class="text-center">Identificación</h2>
+<br>
+<div class="row align-items-center">
+  <div class="col"></div>
+  <form class="col-6" (submit)="OnLoginSubmit()">
+    <div class="mb-3">
+      <label for="LoginInputUserName" class="form-label">Usuario</label>
+      <input type="text" class="form-control" id="LoginInputUserName" aria-describedby="userNameHelp" name="username" [(ngModel)]="user.username">
+    </div>
+    <div class="mb-3">
+      <label for="LoginInputPassword" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="LoginInputPassword" name="password" [(ngModel)]="user.password">
+    </div>
+    <div class="mb-3 text-center">
+      <button type="submit" class="btn btn-success align-center mt-3">Enviar</button>
+    </div>
+  </form>
+  <div class="col"></div>
+</div>

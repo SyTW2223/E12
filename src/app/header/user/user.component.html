@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col"></div>
+    <app-user-new class="col-5 border-end" 
+    (createNewUserEvent)="set_user($event)"
+    ></app-user-new>
+    <app-user-login class="col-5"
+    (LogInUserEvent)="login_user($event)"
+    ></app-user-login>
+    <div class="col"></div>
+</div>

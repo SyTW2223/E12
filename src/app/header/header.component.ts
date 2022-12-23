@@ -53,5 +53,7 @@ export class HeaderComponent {
     this.token = "";
     this.user = new User();
     this.userLoged = false;
+    this.logedAlert = false;
+    this.failAlert = false;
   }
 }

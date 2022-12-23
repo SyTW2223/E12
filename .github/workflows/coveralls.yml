@@ -1,37 +1,27 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+on: ["push", "pull_request"]
 
-name: Coveralls 
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+name: Test Coveralls
 
 jobs:
-  coveralls:
 
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    
-    defaults:
-      run:
-        working-directory:  '/' # Here the path to the folder where package-lock.json is located.
-
     steps:
-    - name: Cloning repo
-      uses: actions/checkout@v2
-    - name: Use Node.js 16.x
-      uses: actions/setup-node@v2
+
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
       with:
-        node-version: 16.x
-        cache-dependency-path: frontend/package-lock.json
-    - name: Installing dependencies
-      run: npm install
-    - name: Generating coverage information
-      run: npm run coveralls
-    - name: Coveralls GitHub Action
+        node-version: 10.x
+
+    - name: npm install, make test-coverage
+      run: |
+        npm install
+        make test-coverage
+
+    - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ${{ github.workspace }}/frontend/coverage/lcov.info

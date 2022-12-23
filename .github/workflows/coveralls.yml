@@ -16,14 +16,14 @@ jobs:
     - name: Cloning repo
       uses: actions/checkout@v2
     # BACKEND
-    - name: Use Node.js 16.x 
+    - name: Use Node.js 18.x 
       uses: actions/setup-node@v2
       with:
-        node-version: 16.x
+        node-version: 18.x
         cache: 'npm'
         cache-dependency-path: './server/package-lock.json'
     - name: Install dependencies
-      working-directory: ./server
+      working-directory: ./
       run: npm install
     - name: Generating coverage information
       run: npm run coveralls
@@ -32,4 +32,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path-to-lcov: ${{ github.workspace }}/server/coverage/lcov.info
-        base-path: ./server/
+        base-path: ./

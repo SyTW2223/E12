@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { LogInUser, User, UserDB } from './user/user';
+import { delay } from 'rxjs';
 
 export interface LogInResponseInterface {
   success: boolean;
@@ -32,6 +33,6 @@ export class UserService {
   }
 
   public login_user(user: LogInUser){
-    return this.http_.post<LogInResponseInterface>('http://10.6.129.248:8080/users/authenticate', user);
+    return this.http_.post<LogInResponseInterface>('http://10.6.129.248:8080/users/authenticate', user).pipe(delay(1500));
   }
 }

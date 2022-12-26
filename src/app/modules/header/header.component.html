@@ -3,14 +3,21 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-      <div></div>
-      <a class="navbar-brand " href="#" (click)="showUserPage=false; logedAlert = false; failAlert = false; showHomePageMethod()">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <a class="navbar-brand" href="#" (click)="showUserPage=false; logedAlert = false; failAlert = false; showHomePageMethod()">
         <img src="../../favicon.ico" alt="Logo" class="d-inline-block align-text-top pr-4">
         InfoSports
       </a>
+      <a type="button" class="btn btn-light nav-item" href="">
+        <img src="../../../images/football.png" width="25%" class="d-inline-block align-text-top pr-4">
+        Football
+      </a>
+      <a type="button" class="btn btn-light nav-item" href="">
+        <img src="../../favicon.ico" width="25%" alt="Logo" class="d-inline-block align-text-top pr-4">  
+        Basketball
+      </a>
+      <a type="button" class="btn btn-secondary nav-item" aria-current="page" (click)="showUserPage=true; showUserPageMethod()">{{username}}</a>
     </div>
-    <a type="button" class="btn btn-secondary nav-item" aria-current="page" (click)="showUserPage=true; showUserPageMethod()">{{username}}</a>
   </div>
 </nav>
 

@@ -1,20 +1,22 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { UserService } from './header/user.service'
+import { UserService } from './modules/header/user.service'
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { UserComponent } from './header/user/user.component';
-import { UserNewComponent } from './header/user/user-new/user-new.component';
-// import { UserDetailsComponent } from './profile/user/user-details/user-details.component';
-//import { UserEditComponent } from './profile/user/user-edit/user-edit.component';
-import { UserLoginComponent } from './header/user/user-login/user-login.component';
-import { ProfileComponent } from './header/profile/profile.component';
+import { HeaderComponent } from './modules/header/header.component';
+import { HomeComponent } from './modules/home/home.component';
+import { UserComponent } from './modules/header/user/user.component';
+import { UserNewComponent } from './modules/header/user/user-new/user-new.component';
+import { UserLoginComponent } from './modules/header/user/user-login/user-login.component';
+import { ProfileComponent } from './modules/header/profile/profile.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { userReducer } from './state/reducers/user.reducers';
+import { ROOT_REDUCERS } from './state/app.state';
 
 
 @NgModule({
@@ -22,9 +24,6 @@ import { ProfileComponent } from './header/profile/profile.component';
     AppComponent,
     UserComponent,
     UserNewComponent,
-    // UserListComponent,
-    // UserDetailsComponent,
-    // UserEditComponent,
     HeaderComponent,
     HomeComponent,
     UserLoginComponent,
@@ -34,7 +33,9 @@ import { ProfileComponent } from './header/profile/profile.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(ROOT_REDUCERS),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [
     UserService

@@ -1,0 +1,15 @@
+import { createSelector } from '@ngrx/store';
+import { SportStateIterface } from 'src/app/core/models/sport.state';
+import { AppState } from '../app.state';
+
+export const selectSport = (state: AppState) => state.sport;
+
+export const selectSportData = createSelector(
+    selectSport,
+    (state: SportStateIterface) => state.sport
+);
+
+export const selectSportAPI = createSelector(
+    selectSport,
+    (state: SportStateIterface) => state.API
+);

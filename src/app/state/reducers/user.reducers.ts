@@ -1,14 +1,20 @@
 import { createReducer, on } from '@ngrx/store';
 import { UserStateInterface } from 'src/app/core/models/user.state';
-import { User } from 'src/app/modules/header/user/user';
-import { Loging } from '../actions/user.actions';
+import { LogInResponse, User } from 'src/app/core/models/user';
+import { LogedIn } from '../actions/user.actions';
 
-export const initialState: UserStateInterface = {loged: false, user: new User()}
+export const initialState: UserStateInterface = {LogInResponse: new LogInResponse()}
 
-export const userReducer = createReducer(
+export const LogedInReducer = createReducer(
   initialState,
-  on(Loging, (state) => {
-    return { ...state, loged: true }
+  on(LogedIn, (state, {LogInResponse}) => {
+    return { ...state, LogInResponse}
   })
 );
 
+// export const LogedOutReducer = createReducer(
+//   initialState,
+//   on(LogedIn, (state, {LogInResponse}) => {
+//     return { ...state, LogInResponse}
+//   })
+// );

@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { UserDBInterface } from 'src/app/core/models/user.interface';
+import { CreateUser } from 'src/app/state/actions/user.actions';
 
-import { User } from '../user'
+import { UserDB } from '../../../../core/models/user'
 
 @Component({
   selector: 'app-user-new',
@@ -8,17 +11,15 @@ import { User } from '../user'
   styleUrls: ['./user-new.component.css']
 })
 export class UserNewComponent {
-  @Output() createNewUserEvent = new EventEmitter();
-  
-  newUser: User = new User;
+  newUser: UserDBInterface = new UserDB();
 
-  constructor(){}
+  constructor(private store_: Store<any>){}
 
   ngOnInit(){}
 
   create(){
-    this.createNewUserEvent.emit(this.newUser);
-    this.newUser = new User();
+    this.store_.dispatch(CreateUser({user: this.newUser}))
+    this.newUser = new UserDB();
   }
 
 }

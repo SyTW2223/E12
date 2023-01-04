@@ -1,5 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { User } from './modules/header/user/user';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { LogInResponseInterface, UserInterface } from './core/models/user.interface';
+import { User } from './core/models/user';
+import { selectUserData } from './state/selectors/user.selector';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +13,18 @@ import { User } from './modules/header/user/user';
 })
 export class AppComponent {
   title = 'infosports';
-  actualPage = "Home";
+  user$: Observable<LogInResponseInterface> = new Observable();
+  user: UserInterface = new User();
+  
+  constructor(
+    private store_: Store<any>,
+    private router_: Router
+  ){}
 
-  UpdatePage(page: string){
-    this.actualPage = page;
+  ngOnInit(){
+    this.user$ = this.store_.select(selectUserData);
+    this.user$.subscribe((res) => {
+      this.user = res.user;
+    });
   }
 }

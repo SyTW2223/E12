@@ -4,7 +4,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-      <a class="navbar-brand" href="#" (click)="showUserPage=false; logedAlert = false; failAlert = false; showHomePageMethod()">
+      <a class="navbar-brand btn" onclick="goHome()">
         <img src="../../favicon.ico" alt="Logo" class="d-inline-block align-text-top pr-4">
         InfoSports
       </a>
@@ -16,22 +16,7 @@
         <img src="assets/basketball.png" width="25%" class="d-inline-block align-text-top pr-4">  
         Basketball
       </a>
-      <a type="button" class="btn btn-secondary nav-item" aria-current="page" (click)="showUserPage=true; showUserPageMethod()">{{username}}</a>
+      <a type="button" class="btn btn-secondary nav-item" aria-current="page" href="user">{{username}}</a>
     </div>
   </div>
 </nav>
-
-  <div class="container mt-3" *ngIf="showUserPage">
-    <div class="alert alert-success text-center" *ngIf="logedAlert">Sesión iniciada correctamente</div>
-    <div class="alert alert-danger text-center" *ngIf="failAlert">No se ha podido iniciar sesión</div>
-  </div>
-  <app-user *ngIf="showUserPage && !userLoged" (updateHeader)="update($event)">
-  </app-user>
-  
-  <app-profile 
-  *ngIf="showUserPage && userLoged" 
-  [user]="this.user"
-  (updateUserEvent)="editUser($event)"
-  (LogOutEvent)="logOut()"
-  >
-  </app-profile>

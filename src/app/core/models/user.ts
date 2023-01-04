@@ -9,11 +9,11 @@ export class UserDB {
 
 export class User {
     constructor (
+        public id: string = "",
         public name: string = "",
         public email: string = "",
         public username: string = "",
-        public password: string = "",
-        public editable: boolean = false
+        public password: string = ""
     ){}
 }
 
@@ -27,8 +27,9 @@ export class LogInUser{
 export class LogInResponse{
     constructor (
         public success: boolean = false,
+        public msg: string = "",
         public token: string = "",
-        public user: User = new User()
+        public user: User = new User("","","","Mi Usuario")
     ){}
 }
 

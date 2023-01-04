@@ -5,7 +5,7 @@ import { UserComponent } from './modules/header/user/user.component';
 import { ProfileComponent } from './modules/header/profile/profile.component';
 
 const routes: Routes = [
-  {path:'', component: HomeComponent},
+  {path:'home', component: HomeComponent},
   {path:'user', component: UserComponent},
   {path:'profile', component: ProfileComponent}
 ]

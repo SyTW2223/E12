@@ -6,11 +6,10 @@ export interface UserDBInterface{
 }
 
 export interface UserInterface{
+    id: string
     name: string 
     email: string 
     username: string 
-    password: string 
-    editable: boolean
 }
 
 export interface LogInUserInterface{
@@ -18,8 +17,14 @@ export interface LogInUserInterface{
     password: string 
 }
 
+export interface LogInEffectIterface{
+    type: string 
+    user: LogInUserInterface 
+}
+
 export interface LogInResponseInterface{
     success: boolean
+    msg: string
     token: string 
     user: UserInterface
 }

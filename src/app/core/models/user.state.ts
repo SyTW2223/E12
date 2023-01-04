@@ -1,6 +1,5 @@
-import { UserInterface } from "./user.interface"
+import { LogInResponseInterface, UserInterface } from "./user.interface"
 
 export interface UserStateInterface {
-    loged: boolean,
-    user: UserInterface;
+    LogInResponse: LogInResponseInterface;
 }

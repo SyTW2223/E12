@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { UserService } from './user.service';
-import { LogInResponse, User } from './user/user';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { LogInResponseInterface } from 'src/app/core/models/user.interface';
+import { selectUserData } from 'src/app/state/selectors/user.selector';
 
 @Component({
   selector: 'app-header',
@@ -8,52 +11,27 @@ import { LogInResponse, User } from './user/user';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Input() username: string = "Mi Usuario";
-  @Output() showPageEvent = new EventEmitter();
-
-  user: User = new User;
-  token: String = "";
-  logedAlert: boolean = false;
-  failAlert: boolean = false;
-  showUserPage: boolean = false;
-  userLoged: boolean = false;
+  user$: Observable<LogInResponseInterface> = new Observable();
+  username: string = "";
 
   constructor(
-    private userService_: UserService,
+    private store_: Store<any>,
+    private router_: Router
   ){}
 
-  update(res: LogInResponse){
-    if(res.success){
-      this.username = res.user.name;
-      this.token = res.token;
-      this.user = res.user;
-      this.userLoged = true;
-      this.logedAlert = true;
-      this.failAlert = false;
-  } else {
-      this.logedAlert = false;
-      this.failAlert = true;
-  }
+  // editUser(user: User){
+  //   this.userService_.update([user.username,user])
+  // }
+
+  ngOnInit(){
+    this.user$ = this.store_.select(selectUserData);
+    this.user$.subscribe((res) => {
+      this.username = res.user.username;
+    });
   }
 
-  showUserPageMethod(){
-    this.showPageEvent.emit("Login");
+  goHome(){
+    // this.router_.navigate(['home'])
   }
 
-  showHomePageMethod(){
-    this.showPageEvent.emit("Home");
-  }
-
-  editUser(user: User){
-    this.userService_.update([user.username,user])
-  }
-
-  logOut(){
-    this.username = "Mi Usuario";
-    this.token = "";
-    this.user = new User();
-    this.userLoged = false;
-    this.logedAlert = false;
-    this.failAlert = false;
-  }
 }

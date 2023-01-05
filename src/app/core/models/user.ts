@@ -1,3 +1,5 @@
+import { HttpEventType, HttpHeaders, HttpResponseBase } from "@angular/common/http";
+
 export class UserDB {
     constructor (
         public name: string = "",
@@ -15,6 +17,11 @@ export class User {
         public username: string = "",
         public password: string = ""
     ){}
+}
+
+export class RegisterResponse{
+    public success: boolean = false;
+    public msg: string = "";
 }
 
 export class LogInUser{

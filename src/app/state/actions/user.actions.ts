@@ -1,5 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { createAction, props } from '@ngrx/store';
-import { LogInResponseInterface, LogInUserInterface, UserDBInterface, UserInterface } from 'src/app/core/models/user.interface';
+import { RegisterResponseInterface, LogInResponseInterface, LogInUserInterface, UserDBInterface, UserInterface } from 'src/app/core/models/user.interface';
 
 export const LogingIn = createAction(
     '[header] Loging In',
@@ -14,6 +15,16 @@ export const LogedIn = createAction(
 export const CreateUser = createAction(
     '[header] Create User',
     props<{user: UserDBInterface}>()
+);
+
+export const CreatedUser = createAction(
+    '[header] Created User',
+    props<{CreateResponse: RegisterResponseInterface}>()
+);
+
+export const HttpError = createAction(
+    '[header] Http Error',
+    props<{Error: HttpErrorResponse}>()
 );
 
 // export const LogingOut = createAction(

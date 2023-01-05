@@ -3,10 +3,10 @@
     <app-user-new class="col-5 border-end"></app-user-new>
     <app-user-login class="col-5" ></app-user-login>
     <div class="col"></div>
-    <div class="alert alert-success mt-3 text-center" role="alert" *ngIf="loged == true">
+    <div class="alert alert-success mt-3 text-center" role="alert" *ngIf="loged || registred">
         {{msg}}
     </div>
-    <div class="alert alert-danger mt-3 text-center" role="alert" *ngIf="failed == true">
+    <div class="alert alert-danger mt-3 text-center" role="alert" *ngIf="LogInFailed || RegisterFailed || HttpErrored">
         {{msg}}
     </div>
 </div>

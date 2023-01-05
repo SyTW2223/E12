@@ -2,7 +2,7 @@ import { ActionReducerMap } from "@ngrx/store";
 import { SportStateIterface } from "../core/models/sport.state";
 import { UserStateInterface } from "../core/models/user.state";
 import { sportReducer } from "./reducers/sport.reducer";
-import { LogedInReducer } from "./reducers/user.reducers";
+import { userReducer } from "./reducers/user.reducers";
 
 export interface AppState {
     userData: UserStateInterface
@@ -10,6 +10,6 @@ export interface AppState {
 }
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
-    userData: LogedInReducer,
+    userData: userReducer,
     sportData: sportReducer
 }

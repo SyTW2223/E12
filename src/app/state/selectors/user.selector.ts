@@ -8,3 +8,13 @@ export const selectUserData = createSelector(
   selectUser,
   (state: UserStateInterface) => state.LogInResponse
 );
+
+export const selectRegisterData = createSelector(
+  selectUser,
+  (state: UserStateInterface) => state.CreationResponse
+);
+
+export const selectErrorData = createSelector(
+  selectUser,
+  (state: UserStateInterface) => state.HttpError
+);

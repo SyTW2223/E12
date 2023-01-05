@@ -1,3 +1,5 @@
+import { HttpEventType, HttpHeaders } from "@angular/common/http"
+
 export interface UserDBInterface{
     name: string 
     email: string 
@@ -17,9 +19,14 @@ export interface LogInUserInterface{
     password: string 
 }
 
-export interface LogInEffectIterface{
+export interface LogInEffectInterface{
     type: string 
     user: LogInUserInterface 
+}
+
+export interface RegisterResponseInterface{
+    success: boolean 
+    msg: string 
 }
 
 export interface LogInResponseInterface{
@@ -27,6 +34,15 @@ export interface LogInResponseInterface{
     msg: string
     token: string 
     user: UserInterface
+}
+
+export interface HttpErrorInterface{
+    headers: HttpHeaders
+    status: number
+    statusText: string
+    url: string | null
+    ok: boolean
+    type: HttpEventType.Response | HttpEventType.ResponseHeader
 }
 
 // FLUX

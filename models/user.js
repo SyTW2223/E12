@@ -21,6 +21,19 @@ const UserSchema = mongoose.Schema({
   },
 });
 
+UserSchema.statics.UsernameExists = async function(username) { //Creamos un metodo para ver si el usuario ya existe
+  if(!username) throw new Error('Usuario Invalido (no hay)')
+  try {
+    const user = await this.findOne({username})
+    if(user) return false
+  
+    return true; //como un else
+  } catch (error) {
+    console.log('Ese nombre de usuario ya está en uso!!!', error.message)
+    return false
+  }
+ 
+} 
 const User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.getUserById = function(id, callback) {

@@ -7,7 +7,9 @@ const config = require('../dbconfig/database');
 
 
 //register
-router.post('/register', (req, res, next) => {
+router.post('/register', async (req, res, next) => {
+let isNewUser = await User.UsernameExists(req.body.username)
+if(!isNewUser) return res.json({success: false, message:'Este usuario ya se encuentra registrado' })
   let newUser = new User({
     name: req.body.name,
     email: req.body.email,
@@ -17,10 +19,10 @@ router.post('/register', (req, res, next) => {
 
   User.addUser(newUser, (err, user) => {
     if(err){
-      res.json({succes: false, msg: 'Fallo al registrar el usuario'});
+      res.status(404).json({success: false, msg: 'Fallo al registrar el usuario'});
     }
     else {
-      res.json({succes: true, msg: 'Usuario registrado!'});
+      res.status(200).json({success: true, msg: 'Usuario registrado'});
     }
   })
 });
@@ -34,7 +36,7 @@ router.post('/authenticate', (req, res, next) => {
   User.findOne({username}, (err, user) => {
     if (err) throw err;
     if (!user) {
-      return res.json({success: false, msg: 'Usuario no encontrado'});
+      return res.status(404).json({success: false, msg: 'Usuario no encontrado'});
     }
       User.comparePassword(password, user.password, (err, isMatch) => { //isMatch Devuelve si las contraseñas coinciden 
         if (err) throw err;
@@ -45,6 +47,7 @@ router.post('/authenticate', (req, res, next) => {
           
           res.json({
             success: true,
+            msg: 'Autenticacion realizada correctamente',
             token: 'JWT ' + token,
             user: {
               id: user._id,
@@ -54,7 +57,7 @@ router.post('/authenticate', (req, res, next) => {
             }
           });
         } else {
-          return res.json({ success: false, msg: 'Contraseña incorrecta' });
+          return res.status(401).json({ success: false, msg: 'Contraseña incorrecta' });
         }
   });
   });

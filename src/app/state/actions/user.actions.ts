@@ -27,10 +27,10 @@ export const HttpError = createAction(
     props<{Error: HttpErrorResponse}>()
 );
 
-// export const LogingOut = createAction(
-//     '[header] Loging Out'
-// );
+export const LogingOut = createAction(
+    '[header] Loging Out'
+);
 
-// export const LogedOut = createAction(
-//     '[header] Loged Out'
-// );
+export const LogedOut = createAction(
+    '[header] Loged Out'
+);

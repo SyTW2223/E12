@@ -1,4 +1,4 @@
-export interface sport {
+export interface SportInterface {
     name: string,
     leagues: string[]
 }

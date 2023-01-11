@@ -12,8 +12,8 @@ export class UserService {
     private http_: HttpClient 
   ){}
 
-  public login_user(user: LogInEffectInterface){
-    return this.http_.post<LogInResponseInterface>('http://10.6.129.248:8080/users/authenticate', user.user);
+  public login_user(login: LogInEffectInterface){
+    return this.http_.post<LogInResponseInterface>('http://10.6.129.248:8080/users/authenticate', login.user);
   }
 
   public create_user(user: UserDBInterface){

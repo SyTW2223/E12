@@ -1,37 +1,35 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { LogInResponse } from 'src/app/core/models/user';
 import { LogInResponseInterface } from 'src/app/core/models/user.interface';
 import { selectUserData } from 'src/app/state/selectors/user.selector';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  user$: Observable<LogInResponseInterface> = new Observable();
-  username: string = "";
+  LogInresponse$: Observable<LogInResponseInterface> = new Observable();
+  username: string = "Mi Usuario";
 
-  constructor(
+  constructor( 
     private store_: Store<any>,
-    private router_: Router
+    private router_: Router 
   ){}
 
-  // editUser(user: User){
-  //   this.userService_.update([user.username,user])
-  // }
-
   ngOnInit(){
-    this.user$ = this.store_.select(selectUserData);
-    this.user$.subscribe((res) => {
-      this.username = res.user.username;
-    });
-  }
+    let user: string | null =  localStorage.getItem('user');
+    if(typeof(user) === 'string')
+      this.username = JSON.parse(user).username;
+    else{
+      this.LogInresponse$ = this.store_.select(selectUserData);
+        this.LogInresponse$.subscribe((res) => {
+            this.username = res.user.username;
+      });
+    }
 
-  goHome(){
-    // this.router_.navigate(['home'])
+    
   }
-
 }

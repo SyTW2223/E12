@@ -14,8 +14,7 @@ function delay(ms: number) {
 
 @Component({
   selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  templateUrl: './user.component.html'
 })
 export class UserComponent {
     RegisterResponse$: Observable<RegisterResponseInterface> = new Observable();
@@ -38,6 +37,9 @@ export class UserComponent {
     ){}
 
     ngOnInit(){
+        if(localStorage.getItem('token') != null)
+            this.router_.navigate(['profile']);
+
         this.LogInresponse$ = this.store_.select(selectUserData);
         this.LogInresponse$.subscribe((res) => {
             this.LogInresponse = res;
@@ -48,12 +50,6 @@ export class UserComponent {
         this.RegisterResponse$.subscribe((res) => {
             this.RegisterResponse = res;
             this.set_user();
-        });
-
-        this.HttpError$ = this.store_.select(selectErrorData);
-        this.HttpError$.subscribe((res) => {
-            this.HttpError = res;
-            this.http_Error();
         });
     }
 
@@ -80,6 +76,8 @@ export class UserComponent {
     async login_user(){
         this.resetFeedBack();
         if(this.LogInresponse.success == true){
+            localStorage.setItem('token',this.LogInresponse.token)
+            localStorage.setItem('user',JSON.stringify(this.LogInresponse.user))
             this.msg = this.LogInresponse.msg
             this.loged = true;
             await delay(2000);
@@ -92,8 +90,9 @@ export class UserComponent {
 
     http_Error(){
         this.resetFeedBack();
-        if(this.HttpError.status != 1){
-            this.msg = 'Error Http: ' + this.HttpError.status
+        console.log('error')
+        if(this.HttpError != undefined){
+            this.msg = this.HttpError.statusText
             this.HttpErrored = true;
         }
     }

@@ -1,5 +1,7 @@
+import { SportInterface } from "./sport.interface";
+
 export interface SportStateIterface {
-    sport: string,
+    sport: SportInterface,
     API: string,
     loaded: boolean
 }

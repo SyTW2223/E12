@@ -6,8 +6,7 @@ import { LogInUser } from '../../../../core/models/user';
 
 @Component({
   selector: 'app-user-login',
-  templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css']
+  templateUrl: './user-login.component.html'
 })
 export class UserLoginComponent {
   user: LogInUser = new LogInUser();
@@ -19,7 +18,6 @@ export class UserLoginComponent {
   }
 
   OnLoginSubmit(){
-    this.store_.dispatch(LogingIn({user: this.user}))
-    this.user = new LogInUser();
+    this.store_.dispatch(LogingIn({user: this.user}));
   }
 }

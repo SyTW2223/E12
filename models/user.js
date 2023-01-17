@@ -32,8 +32,31 @@ UserSchema.statics.UsernameExists = async function(username) { //Creamos un meto
     console.log('Ese nombre de usuario ya está en uso!!!', error.message)
     return false
   }
- 
 } 
+
+UserSchema.statics.EmailExists = async function(email) { //Creamos un metodo para ver si el usuario ya existe
+  if(!email) throw new Error('Email Invalido (no hay)')
+  try {
+    const emailV = await this.findOne({email})
+    if(emailV) return false
+  
+    return true; //como un else
+  } catch (error) {
+    console.log('Ese email ya está en uso!!!', error.message)
+    return false
+  }
+}
+
+UserSchema.statics.Emptyfields = async function(name, email, username, password) {
+  if (!name || !email || !username || !password) {
+    console.log('Por favor, rellene todos los campos')
+    //throw new Error('Hay campos vacios')
+    return false
+  }
+  return true
+}
+
+
 const User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.getUserById = function(id, callback) {

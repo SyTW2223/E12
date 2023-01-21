@@ -13,15 +13,15 @@ let initial: LogInResponse
       initial = new LogInResponse()
     }
     
-export const initialState: UserStateInterface = {LogInResponse: initial, CreationResponse: new RegisterResponse(), HttpError: new HttpErrorResponse({})}
+export const initialState: UserStateInterface = {LogInResponse: initial, CreationResponse: new RegisterResponse(), HttpError: new HttpErrorResponse({status: 999})}
 
 export const userReducer = createReducer(
   initialState,
   on(LogedIn, (state, {LogInResponse}) => {
     return { ...state, LogInResponse}
   }),
-  on(CreatedUser, (state, {CreateResponse}) => {
-    return { ...state, CreateResponse}
+  on(CreatedUser, (state, {CreationResponse}) => {
+    return { ...state, CreationResponse}
   }),
   on(HttpError, (state, {Error}) => {
     return { ...state, HttpError: Error}

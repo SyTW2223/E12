@@ -1,4 +1,14 @@
+export interface LeagueInterface {
+    Nombre: string,
+    Logo: string,
+    Pais: string,
+    Bandera: string | null
+}
+
 export interface SportInterface {
-    name: string,
-    leagues: string[]
+    leagues: LeagueInterface[]
+}
+
+export interface SportResponseInterface {
+    leagues: LeagueInterface[]
 }

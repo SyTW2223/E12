@@ -1,7 +1,8 @@
-import { SportInterface } from "./sport.interface";
+import { HttpErrorResponse } from "@angular/common/http";
+import { LeagueInterface, SportInterface } from "./sport.interface";
 
 export interface SportStateIterface {
-    sport: SportInterface,
-    API: string,
-    loaded: boolean
+    sport: LeagueInterface[],
+    loaded: boolean,
+    HttpError: HttpErrorResponse;
 }

@@ -18,6 +18,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './state/app.state';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './state/effects/user.effects';
+import { FootballComponent } from './modules/football/football.component';
+import { FootballLeaguesSelectorComponent } from './modules/football/football-leagues-selector/football-leagues-selector.component';
+import { FootballStandingsPageComponent } from './modules/football/football-standings-page/football-standings-page.component';
+import { FootballStandingsComponent } from './modules/football/football-standings-page/football-standings/football-standings.component';
+import { SportService } from './state/service/sport.service';
+import { SportEffects } from './state/effects/football.effects';
 
 
 @NgModule({
@@ -28,7 +34,11 @@ import { UserEffects } from './state/effects/user.effects';
     HeaderComponent,
     HomeComponent,
     UserLoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    FootballComponent,
+    FootballLeaguesSelectorComponent,
+    FootballStandingsPageComponent,
+    FootballStandingsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +47,11 @@ import { UserEffects } from './state/effects/user.effects';
     AppRoutingModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([UserEffects])
+    EffectsModule.forRoot([UserEffects, SportEffects])
   ],
   providers: [
-    UserService
+    UserService,
+    SportService
   ],
   bootstrap: [AppComponent]
 })

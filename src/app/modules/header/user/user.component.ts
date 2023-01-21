@@ -38,19 +38,7 @@ export class UserComponent {
 
     ngOnInit(){
         if(localStorage.getItem('token') != null)
-            this.router_.navigate(['profile']);
-
-        this.LogInresponse$ = this.store_.select(selectUserData);
-        this.LogInresponse$.subscribe((res) => {
-            this.LogInresponse = res;
-            this.login_user();
-        });
-
-        this.RegisterResponse$ = this.store_.select(selectRegisterData);
-        this.RegisterResponse$.subscribe((res) => {
-            this.RegisterResponse = res;
-            this.set_user();
-        });
+            this.router_.navigate(['profile']);        
     }
 
     resetFeedBack(){
@@ -62,8 +50,19 @@ export class UserComponent {
         this.msg = "";
     }
 
-    set_user(){
+    async set_user(){
+        await delay(2000);
+        this.RegisterResponse$ = this.store_.select(selectRegisterData);
+        this.RegisterResponse$.subscribe((res) => {
+            this.RegisterResponse = res;
+            this.manage_register();
+        }).unsubscribe();
+        this.http_Error();
+    }
+
+    async manage_register(){
         this.resetFeedBack();
+
         if(this.RegisterResponse.success == true){
             this.msg = this.RegisterResponse.msg
             this.registred = true;
@@ -74,7 +73,18 @@ export class UserComponent {
     }
 
     async login_user(){
+        await delay(2000);
+        this.LogInresponse$ = this.store_.select(selectUserData);
+        this.LogInresponse$.subscribe((res) => {
+            this.LogInresponse = res;
+            this.manage_login();
+        }).unsubscribe();
+        this.http_Error();
+    }
+
+    async manage_login(){
         this.resetFeedBack();
+
         if(this.LogInresponse.success == true){
             localStorage.setItem('token',this.LogInresponse.token)
             localStorage.setItem('user',JSON.stringify(this.LogInresponse.user))
@@ -88,11 +98,24 @@ export class UserComponent {
         }
     }
 
-    http_Error(){
+    async http_Error(){
+        this.HttpError$ = this.store_.select(selectErrorData);
+        this.HttpError$.subscribe((res) => {
+            this.HttpError = res;
+            this.manage_http_error();
+        }).unsubscribe();
+    }
+
+    async manage_http_error(){
         this.resetFeedBack();
-        console.log('error')
-        if(this.HttpError != undefined){
-            this.msg = this.HttpError.statusText
+        if(this.HttpError.status == 0){
+            this.msg = 'Fallo de conexión con el servidor';
+            this.HttpErrored = true;
+        } else if (this.HttpError.status != 999){
+            this.msg = this.HttpError.error.msg
+            this.HttpErrored = true;
+        } else {
+            this.msg = 'Ha ocurrido un fallo';
             this.HttpErrored = true;
         }
     }

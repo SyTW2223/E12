@@ -8,8 +8,3 @@ export const selectSportData = createSelector(
     selectSport,
     (state: SportStateIterface) => state.sport
 );
-
-export const selectSportAPI = createSelector(
-    selectSport,
-    (state: SportStateIterface) => state.API
-);

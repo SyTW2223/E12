@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { LogInEffectInterface, LogInResponseInterface, UserDBInterface } from 'src/app/core/models/user.interface';
+import { LogInEffectInterface, LogInResponseInterface, RegisterResponseInterface, UserDBInterface } from 'src/app/core/models/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class UserService {
   }
 
   public create_user(user: UserDBInterface){
-    return this.http_.post('http://10.6.129.248:8080/users/register', user);
+    return this.http_.post<RegisterResponseInterface>('http://10.6.129.248:8080/users/register', user.user);
   }
   
   // public delete(user: User){

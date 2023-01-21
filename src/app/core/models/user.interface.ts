@@ -1,10 +1,15 @@
 import { HttpEventType, HttpHeaders } from "@angular/common/http"
 
-export interface UserDBInterface{
+export interface UserRegisterInterface{
     name: string 
     email: string 
     username: string 
     password: string 
+}
+
+export interface UserDBInterface{
+    type: string,
+    user: UserRegisterInterface
 }
 
 export interface UserInterface{
@@ -43,6 +48,7 @@ export interface HttpErrorInterface{
     url: string | null
     ok: boolean
     type: HttpEventType.Response | HttpEventType.ResponseHeader
+    error: any
 }
 
 // FLUX

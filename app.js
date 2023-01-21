@@ -19,6 +19,7 @@ const app = express();
 const port = 8080;
 
 const users = require('./routes/users');
+const sports = require('./routes/sports');
 
 //CORS Middleware
 app.use(cors()); //Con esto se podran conectar desde cualquier lado
@@ -43,8 +44,11 @@ app.use(passport.session());
 
 require('./dbconfig/passport')(passport);
 
+app.use('/sports', sports);
 
 app.use('/users', users);
+
+
 //Index Route
 app.get('/api', (req, res) => {
   res.send('direccion invalida');

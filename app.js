@@ -12,8 +12,8 @@ var ip = require("ip");
 mongoose.connect('mongodb://equipo12:equipo12@172.16.130.61:27017/Proyecto', {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}).then(db => console.log('La base de datos esta conectada'))
-  .catch(err => console.log(err))
+})//.then(db => console.log('La base de datos esta conectada'))
+  //.catch(err => console.log(err))
 
 const app = express();
 const port = 8080;

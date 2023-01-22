@@ -28,7 +28,7 @@ jobs:
     - name: Install dependencies
       working-directory: ./
       run: npm install
-    - name: Generating coverage information
+    #- name: Generating coverage information
      # run: npm run coveralls
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@1.1.3

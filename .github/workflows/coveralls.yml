@@ -18,7 +18,7 @@ jobs:
     - name: Installing dependencies
       run: npm install
     - name: Load Secrets
-      run: 'echo "$ENV_PARAMS" > backend/.env.local'
+      run: 'echo "$ENV_PARAMS" > /.env.local'
       shell: bash
       env:
         ENV_PARAMS: ${{ secrets.ENV_PARAMS }}

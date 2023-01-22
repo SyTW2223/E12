@@ -1,29 +1,10 @@
+name: Coveralls
 
-
-name: Coveralls Integration
-
-on:
-  push:
-    branches: [ "BackEnd" ]
-  pull_request:
-    branches: [ "backEnd" ]
+on: ["push", "pull_request"]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        folder: 
-          - 'client'
-          - 'server'
-
-    defaults:
-      run:
-        working-directory: ./${{ matrix.folder }}
-      
-    env:
-      COVERALLS_PARALLEL: true
     
     steps:
     - name: Cloning repo
@@ -33,26 +14,20 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-        cache-dependency-path: ./${{ matrix.folder }}/package-lock.json
+        cache-dependency-path: ./package-lock.json
     - name: Installing dependencies
       run: npm install
-    - name: Generating coverage information
-      run: npm run coverage
+    - name: Load Secrets
+      run: 'echo "$ENV_PARAMS" > backend/.env.local'
+      shell: bash
+      env:
+        ENV_PARAMS: ${{ secrets.ENV_PARAMS }}
+    # - name: Check Secrets
+    #   run: cat backend/.env.local
+    - name: Building Express
+      run: npm run build:express
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@master
       with:
-        github-token: ${{ secrets.github_token }}
-        path-to-lcov: ${{ github.workspace }}/${{ matrix.folder }}/coverage/lcov.info
-        flag-name:  run-${{ matrix.folder }}
-        base-path: ${{ github.workspace }}/${{ matrix.folder }}
-        parallel: true
-
-  finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
-        parallel-finished: true
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: ${{ github.workspace }}/coverage/lcov.info

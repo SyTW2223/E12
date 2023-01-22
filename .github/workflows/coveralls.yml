@@ -17,11 +17,11 @@ jobs:
         cache-dependency-path: ./package-lock.json
     - name: Installing dependencies
       run: npm install
-    - name: Load Secrets
-      run: 'echo "$ENV_PARAMS" > /.env.local'
-      shell: bash
-      env:
-        ENV_PARAMS: ${{ secrets.ENV_PARAMS }}
+    #- name: Load Secrets
+    #  run: 'echo "$ENV_PARAMS" > /.env.local'
+     # shell: bash
+     # env:
+      #  ENV_PARAMS: ${{ secrets.ENV_PARAMS }}
     # - name: Check Secrets
     #   run: cat backend/.env.local
     

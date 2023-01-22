@@ -24,6 +24,7 @@ jobs:
         ENV_PARAMS: ${{ secrets.ENV_PARAMS }}
     # - name: Check Secrets
     #   run: cat backend/.env.local
+    
     - name: Building Express
       run: npm run build:express
     - name: Coveralls GitHub Action

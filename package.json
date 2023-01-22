@@ -4,10 +4,10 @@
   "description": "proyecto",
   "main": "app.js",
   "scripts": {
-    "test": "jest --testTimeout=60000",
+    "test": "jest --detectOpenHandles --testTimeout=60000",
     "start": "node app",
     "coverage": "npm run test --coverage",
-    "coveralls": "jest --testTimeout=60000 --coverage"
+    "coveralls": "jest --testTimeout=60000 --detectOpenHandles --coverage"
   },
   "dependencies": {
     "bcryptjs": "*",

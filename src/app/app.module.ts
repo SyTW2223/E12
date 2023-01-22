@@ -21,7 +21,6 @@ import { UserEffects } from './state/effects/user.effects';
 import { FootballComponent } from './modules/football/football.component';
 import { FootballLeaguesSelectorComponent } from './modules/football/football-leagues-selector/football-leagues-selector.component';
 import { FootballStandingsPageComponent } from './modules/football/football-standings-page/football-standings-page.component';
-import { FootballStandingsComponent } from './modules/football/football-standings-page/football-standings/football-standings.component';
 import { SportService } from './state/service/sport.service';
 import { SportEffects } from './state/effects/football.effects';
 
@@ -37,8 +36,7 @@ import { SportEffects } from './state/effects/football.effects';
     ProfileComponent,
     FootballComponent,
     FootballLeaguesSelectorComponent,
-    FootballStandingsPageComponent,
-    FootballStandingsComponent
+    FootballStandingsPageComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,22 @@ export class SportEffects {
     catchError(async (Error) => ({ type: '[football] HttpError', Error }))
   ));
 
+  FootballMatches$ = createEffect(() => this.actions$.pipe(
+    ofType('[football] Loading Matches'),
+    mergeMap(action => this.sportService.football_matches(action).pipe(
+      map(FootballMatchesResponse => ({type: '[football] Loaded Matches', FootballMatchesResponse}))
+    )),
+    catchError(async (Error) => ({ type: '[football] HttpError', Error }))
+  ));
+
+  FootballStandings$ = createEffect(() => this.actions$.pipe(
+    ofType('[football] Loading Standings'),
+    mergeMap(action => this.sportService.football_standings(action).pipe(
+      map(FootballStandingsResponse => ({type: '[football] Loaded Standings', FootballStandingsResponse}))
+    )),
+    catchError(async (Error) => ({ type: '[football] HttpError', Error }))
+  ));
+
   constructor(
     private actions$: Actions,
     private sportService: SportService

@@ -1,34 +1,34 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-9">
-      <div class="container bg-secondary bg-gradient pt-3 pb-5 border border-success rounded bg-opacity-75">
-        <img src={{league.Logo}} alt="">
-        <img src={{league.Bandera}} alt="">
-        {{league.Nombre}}
-        <br>
-        {{league.Pais}}
-      </div>
-    </div> -->
-    <!-- <div class="col-md-4">
-      <img src={{league.Logo}} alt="Logo" class="img-fluid">
-      <p>Name: {{league.Nombre}}</p>
-      <p>Country: {{league.Pais}}</p>
-    </div>
-    <div class="col-md-4">
-      <img src={{league.Bandera}} alt="Flag" class="img-fluid" *ngIf="league.Bandera != null">
-      <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/World_Flag_%282004%29.svg/800px-World_Flag_%282004%29.svg.png' alt="Flag" class="img-fluid" *ngIf="league.Bandera == null">
-    </div> -->
-    <!-- <div class="col-3">
-      <div class="container bg-secondary bg-gradient pt-3 pb-5 border border-success rounded">
-        <h2 class="text-center">Ligas</h2>
-        <div class="list-group ">
-          <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('Premier League')">Premier</button>
-          <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('La Liga')">LaLiga</button>
-          <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('UEFA Champions League')">Champions</button>
-          <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('UEFA Europa League')">EuropaLeague</button>
-          <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('Bundesliga')">BundesLiga</button>
+<div class="row">
+  <div class="col-9">
+    <div class="container bg-secondary bg-gradient pt-3 pb-5 rounded bg-opacity-75 text-center">
+          <div style="overflow-y: scroll; height: 500px" *ngIf="MatchesResponse$ | async as matches">
+                <div *ngFor="let match of matches">
+                    <div class="container bg-secondary bg-gradient pt-3 pb-5 rounded bg-opacity-75">
+                        <div class="d-flex justify-content-center my-3">
+                            <img src={{match.Local_logo}} alt="" class="mr-3">
+                            <h2 class="my-auto mx-3">vs</h2>
+                            <img src={{match.Visitante_logo}} alt="" class="ml-3">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <p class="mx-3"><strong>Local:</strong> {{match.Local}}</p>
+                            <p class="mx-3"><strong>Visitante:</strong> {{match.Visitante}}</p>
+                        </div>
+                        <p><strong>Fecha:</strong> {{match.Fecha | date:'medium':'locale'}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div> -->
+    <div class="col-2">
+        <div class="container bg-secondary bg-gradient pt-3 pb-5 rounded">
+            <h2 class="text-center">Ligas</h2>
+            <div class="list-group ">
+                <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('Premier')">Premier</button>
+                <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('LaLiga')">LaLiga</button>
+                <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('Champions')">Champions</button>
+                <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('EuropaLeague')">EuropaLeague</button>
+                <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadFootball('Bundesliga')">BundesLiga</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,17 +8,29 @@
         <img src="../../favicon.ico" alt="Logo" class="d-inline-block align-text-top pr-4">
         InfoSports
       </a>
-      <a type="button" class="btn btn-light nav-item" href="football">
-        <img src="assets/football.png" width="25%" class="d-inline-block align-text-top pr-4">
-        Football
-      </a>
-      <a type="button" class="btn btn-light nav-item" href="basket">
-        <img src="assets/basketball.png" width="25%" class="d-inline-block align-text-top pr-4">  
-        Basketball
-      </a>
+      <div class="dropdown">
+        <button class="btn btn-light nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="assets/football.png" width="25%" class="d-inline-block align-text-top pr-4">
+          Football
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="football-matches">Partidos</a></li>
+          <li><a class="dropdown-item" href="football-standings">Clasificaciones</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-light nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="assets/basketball.png" width="25%" class="d-inline-block align-text-top pr-4"> 
+          Basketball
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="basket-matches">Partidos</a></li>
+          <li><a class="dropdown-item" href="basket-standings">Clasificaciones</a></li>
+        </ul>
+      </div>
       <a type="button" class="btn btn-danger nav-item" href="user" aria-current="page">
         {{username}}
       </a>
     </div>
   </div>
-</nav>
+</nav> 

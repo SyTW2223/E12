@@ -22,7 +22,11 @@ import { FootballComponent } from './modules/football/football.component';
 import { FootballLeaguesSelectorComponent } from './modules/football/football-leagues-selector/football-leagues-selector.component';
 import { FootballStandingsPageComponent } from './modules/football/football-standings-page/football-standings-page.component';
 import { SportService } from './state/service/sport.service';
-import { SportEffects } from './state/effects/football.effects';
+import { SportEffects } from './state/effects/sport.effects';
+import { BasketComponent } from './modules/basket/basket.component';
+import { FooterComponent } from './modules/footer/footer.component';
+import { BasketMatchesPageComponent } from './modules/basket/basket-matches-page/basket-matches-page.component';
+import { BasketStandingsComponent } from './modules/basket/basket-standings/basket-standings.component';
 
 
 @NgModule({
@@ -36,7 +40,11 @@ import { SportEffects } from './state/effects/football.effects';
     ProfileComponent,
     FootballComponent,
     FootballLeaguesSelectorComponent,
-    FootballStandingsPageComponent
+    FootballStandingsPageComponent,
+    BasketComponent,
+    BasketMatchesPageComponent,
+    BasketStandingsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

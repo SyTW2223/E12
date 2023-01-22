@@ -12,8 +12,3 @@ export interface FootballStandingsInterface {
     Puntos: number,
     Logo: string
 }
-
-export interface FootballMatchesEffectInterface {
-    League: string,
-    type: string
-}

@@ -30,6 +30,30 @@ export class SportEffects {
     catchError(async (Error) => ({ type: '[football] HttpError', Error }))
   ));
 
+  BasketLoad$ = createEffect(() => this.actions$.pipe(
+    ofType('[Basket] Loading'),
+    mergeMap(() => this.sportService.basket_leagues().pipe(
+      map(SportResponse => ({type: '[Basket] Loaded', SportResponse}))
+    )),
+    catchError(async (Error) => ({ type: '[Basket] HttpError', Error }))
+  ));
+
+  BasketMatches$ = createEffect(() => this.actions$.pipe(
+    ofType('[Basket] Loading Matches'),
+    mergeMap(action => this.sportService.basket_matches(action).pipe(
+      map(BasketMatchesResponse => ({type: '[Basket] Loaded Matches', BasketMatchesResponse}))
+    )),
+    catchError(async (Error) => ({ type: '[Basket] HttpError', Error }))
+  ));
+
+  BasketStandings$ = createEffect(() => this.actions$.pipe(
+    ofType('[Basket] Loading Standings'),
+    mergeMap(action => this.sportService.basket_standings(action).pipe(
+      map(BasketStandingsResponse => ({type: '[Basket] Loaded Standings', BasketStandingsResponse}))
+    )),
+    catchError(async (Error) => ({ type: '[Basket] HttpError', Error }))
+  ));
+
   constructor(
     private actions$: Actions,
     private sportService: SportService

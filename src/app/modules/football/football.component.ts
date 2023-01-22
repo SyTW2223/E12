@@ -12,20 +12,12 @@ import { selectSportData } from 'src/app/state/selectors/sport.selector';
   templateUrl: './football.component.html'
 })
 export class FootballComponent {
-  SportResponse$: Observable<LeagueInterface[]> = new Observable();
   sport: LeagueInterface[] = [];
 
   constructor( 
-    private store_: Store<any>
-    //private router_: Router
   ){}
 
   ngOnInit(){
-      // this.SportResponse$ = this.store_.select(selectSportData);
-      // this.SportResponse$.subscribe((res) => {
-      //       this.sport = res;
-      //       console.log(this.sport)
-      // });
       this.sport = 
       [
         {

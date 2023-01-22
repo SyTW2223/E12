@@ -2,6 +2,7 @@
   <div class="col-9">
     <div class="container bg-secondary bg-gradient pt-3 pb-5 rounded bg-opacity-75 text-center">
           <div style="overflow-y: scroll; height: 500px" *ngIf="MatchesResponse$ | async as matches">
+            <h2 class="text-center">{{this.actualLeague}}</h2>
                 <div *ngFor="let match of matches">
                     <div class="container bg-secondary bg-gradient pt-3 pb-5 rounded bg-opacity-75">
                         <div class="d-flex justify-content-center my-3">

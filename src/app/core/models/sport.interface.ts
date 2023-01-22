@@ -12,3 +12,8 @@ export interface SportInterface {
 export interface SportResponseInterface {
     leagues: LeagueInterface[]
 }
+
+export interface SportEffectInterface {
+    League: string,
+    type: string
+}

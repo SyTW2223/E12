@@ -1,1 +1,52 @@
-<p>basket works!</p>
+<div id="carouselExampleInterval2" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner rounded-bottom-5">
+      <a class="carousel-item active" data-bs-interval="5000" href="basket-matches?league=Premier">
+        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/World_Flag_%282004%29.svg/800px-World_Flag_%282004%29.svg.png' class="d-block w-100 opacity-25" style="height:600px; object-fit: cover" alt="...">
+        <div class="carousel-caption d-none d-md-block align-items-center justify-content-center" style="padding-bottom:170px">
+          <img src={{sport[0].Logo}} class="img-fluid" alt="Logo">
+          <h1 class="text-dark">{{sport[0].Nombre}}</h1>
+          <p class="text-dark">{{sport[0].Pais}}</p>
+        </div>
+      </a>
+      <a class="carousel-item" data-bs-interval="5000" href="basket-matches?league=Bundesliga">
+        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/World_Flag_%282004%29.svg/800px-World_Flag_%282004%29.svg.png' class="d-block w-100 opacity-25" style="height:600px; object-fit: cover" alt="...">
+        <div class="carousel-caption d-none d-md-block align-items-center justify-content-center" style="padding-bottom:170px">
+          <img src={{sport[1].Logo}} class="img-fluid" alt="Logo">
+          <h1 class="text-dark">{{sport[1].Nombre}}</h1>
+          <p class="text-dark">{{sport[1].Pais}}</p>
+        </div>
+      </a>
+      <a class="carousel-item" data-bs-interval="5000" href="basket-matches?league=LaLiga">
+        <img src={{sport[2].Bandera}} class="d-block w-100 opacity-25" alt="..." style="height:600px; object-fit: cover">
+        <div class="carousel-caption d-none d-md-block align-items-center justify-content-center" style="padding-bottom:170px">
+          <img src={{sport[2].Logo}} class="img-fluid" alt="Logo">
+          <h1 class="text-dark">{{sport[2].Nombre}}</h1>
+          <p class="text-dark">{{sport[2].Pais}}</p>
+        </div>
+      </a>
+      <a class="carousel-item" data-bs-interval="5000" href="basket-matches?league=Champions">
+        <img src={{sport[3].Bandera}} class="d-block w-100 opacity-25" alt="..." style="height:600px; object-fit: cover">
+        <div class="carousel-caption d-none d-md-block align-items-center justify-content-center" style="padding-bottom:170px">
+          <img src={{sport[3].Logo}} class="img-fluid" alt="Logo">
+          <h1 class="text-dark">{{sport[3].Nombre}}</h1>
+          <p class="text-dark">{{sport[3].Pais}}</p>
+        </div>
+      </a>
+      <a class="carousel-item" data-bs-interval="5000" href="basket-matches?league=EuropaLeague"> 
+        <img src={{sport[4].Bandera}} class="d-block w-100 opacity-25" alt="..." style="height:600px; object-fit: cover">
+        <div class="carousel-caption d-none d-md-block align-items-center justify-content-center" style="padding-bottom:170px">
+          <img src={{sport[4].Logo}} class="img-fluid" alt="Logo">
+          <h1 class="text-dark">{{sport[4].Nombre}}</h1>
+          <p class="text-dark">{{sport[4].Pais}}</p>
+        </div>
+      </a>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval2" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval2" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>

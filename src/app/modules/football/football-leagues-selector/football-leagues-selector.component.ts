@@ -8,10 +8,6 @@ import { LeagueInterface, SportInterface } from 'src/app/core/models/sport.inter
 import { LoadingFootballMatches } from 'src/app/state/actions/football.actions';
 import { selectFootball, selectFootballMatches, selectSportData } from 'src/app/state/selectors/sport.selector';
 
-function delay(ms: number) {
-  return new Promise( resolve => setTimeout(resolve, ms) );
-}
-
 @Component({
   selector: 'app-football-leagues-selector',
   templateUrl: './football-leagues-selector.component.html'

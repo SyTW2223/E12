@@ -1,12 +1,31 @@
 <div class="row">
     <div class="col"></div>
-    <app-user-new class="col-5 border-end" (RegisterTry)="set_user()"></app-user-new>
-    <app-user-login class="col-5" (LogInTry)="login_user()"></app-user-login>
+    <app-user-new class="col-5 border-end"></app-user-new>
+    <app-user-login class="col-5"></app-user-login>
     <div class="col"></div>
-    <div class="alert alert-success mt-3 text-center" role="alert" *ngIf="loged || registred">
-        {{msg}}
-    </div>
-    <div class="alert alert-danger mt-3 text-center" role="alert" *ngIf="LogInFailed || RegisterFailed || HttpErrored">
-        {{msg}}
+</div>
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <ng-container *ngIf="LogInresponse$ | async as LogInResponse" class="d-block">
+                <div class="alert mt-3 text-center" role="alert" 
+                [ngClass]="{'alert-danger': !LogInResponse.success && LogInResponse.msg != '', 'alert-success': LogInResponse.success}">
+                    {{LogInResponse.msg}}
+                </div>
+                <div *ngIf="LogInResponse.success"> {{manage_login(LogInResponse.token, LogInResponse.user)}}</div>
+            </ng-container>
+            <ng-container *ngIf="RegisterResponse$ | async as RegisterResponse" class="d-block">
+                <div class="alert mt-3 text-center" role="alert" 
+                [ngClass]="{'alert-danger': !RegisterResponse.success && RegisterResponse.msg != '', 'alert-success': RegisterResponse.success}">
+                    {{RegisterResponse.msg}}
+                </div>
+            </ng-container>
+            <ng-container *ngIf="HttpError$ | async as ErrorResponse" class="d-block">
+                <div class="alert mt-3 text-center" role="alert" 
+                [ngClass]="{'alert-danger': ErrorResponse?.status !== 999}">
+                    {{ErrorResponse?.error?.msg}}
+                </div>
+            </ng-container>
+        </div>
     </div>
 </div>

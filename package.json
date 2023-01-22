@@ -4,8 +4,10 @@
   "description": "proyecto",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "test": "jest --testTimeout=60000",
+    "start": "node app",
+    "coverage": "npm run test --coverage",
+    "coveralls": "jest --testTimeout=60000 --coverage"
   },
   "dependencies": {
     "bcryptjs": "*",
@@ -19,6 +21,13 @@
     "passport-jwt": "*",
     "express-session": "*"
   },
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "nyc": "^15.1.0",
+    "supertest": "^6.3.3"
+  },
+  
   "author": "E12",
   "license": "ISC"
+
 }

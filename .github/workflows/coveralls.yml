@@ -16,10 +16,10 @@ jobs:
     - name: Cloning repo
       uses: actions/checkout@v2
     # BACKEND
-    - name: Use Node.js 18.x 
+    - name: Use Node.js 18.10.x 
       uses: actions/setup-node@v2
       with:
-        node-version: 18.x
+        node-version: 18.10.x
         cache: 'npm'
         cache-dependency-path: './server/package-lock.json'
     - name: Install dependencies

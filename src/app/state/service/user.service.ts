@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { LogInEffectInterface, LogInResponseInterface, ProfileEffectInterface, RegisterResponseInterface, UserDBInterface } from 'src/app/core/models/user.interface';
 
+// const PORT = process.env['BACKEND_PORT'];
+// const HOST = process.env['BACKEND_HOST'];
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +24,7 @@ export class UserService {
   }
   
   public profile(jwt: ProfileEffectInterface){
+    // console.log(PORT, HOST)
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': jwt.token

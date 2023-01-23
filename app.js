@@ -11,7 +11,7 @@ var ip = require("ip");
 //Connect to database
 const mongo_ias_url = 'mongodb://equipo12:equipo12@172.16.130.61:27017/Proyecto';
 const mongo_atlas_url = 'mongodb+srv://alu0101339542:equipo12@cluster0.fvoti1x.mongodb.net/InfoSport?retryWrites=true&w=majority';
-mongoose.connect(mongo_atlas_url, {
+mongoose.connect(mongo_ias_url, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(db => console.log('La base de datos esta conectada'))

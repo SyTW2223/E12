@@ -1,5 +1,5 @@
 export interface BasketMatchInterface {
-    fecha: string,
+    Fecha: string,
     Local: string,
     Local_logo: string,
     Visitante: string,

@@ -1,37 +1,39 @@
-<div class="row">
-    <div class="col-9">
-      <div class="container bg-secondary bg-gradient pt-3 pb-5 rounded bg-opacity-75">
-            <div style="overflow-y: scroll; height: 500px" *ngIf="StandingsResponse$ | async as standings">
-              <h2 class="text-center">{{this.actualLeague}}</h2>
-              <table class="table">
-                  <thead>
-                      <tr>
-                          <th scope="col">Puesto</th>
-                          <th scope="col">Equipo</th>
-                          <th scope="col">Grupo</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let team of standings">
-                    <th scope="row" class="align-middle">{{team.Puesto}}</th>
-                    <td class="align-middle"><img class="img-fluid" src={{team.Logo}} style="max-width: 30px;"> {{team.Equipo}}</td>
-                    <td class="align-middle">{{team.Grupo}}</td>
-                    </tr>
-                  </tbody>
-              </table>
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+        <div class="container bg-secondary bg-gradient pt-3 pb-5 rounded bg-opacity-75">
+                <div style="overflow-y: scroll; height: 500px" *ngIf="StandingsResponse$ | async as standings">
+                <h2 class="text-center">{{this.actualLeague}}</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Puesto</th>
+                            <th scope="col">Equipo</th>
+                            <th scope="col">Grupo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let team of standings">
+                        <th scope="row" class="align-middle">{{team.Puesto}}</th>
+                        <td class="align-middle"><img class="img-fluid" src={{team.Logo}} style="max-width: 30px;"> {{team.Equipo}}</td>
+                        <td class="align-middle">{{team.Grupo}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
             </div>
-          </div>
-      </div>
-      <div class="col-2">
-          <div class="container bg-secondary bg-gradient pt-3 pb-5 rounded">
-              <h2 class="text-center">Ligas</h2>
-              <div class="list-group ">
-                  <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('ACB')">ACB</button>
-                  <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('Greek')">Greek</button>
-                  <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('Champions')">Champions</button>
-                  <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('NBA')">NBA</button>
-                  <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('EuroBasket')">EuroBasket</button>
-              </div>
-          </div>
-      </div>
-  </div>
+        </div>
+        <div class="col-3">
+            <div class="container bg-secondary bg-gradient pt-3 pb-5 rounded">
+                <h2 class="text-center">Ligas</h2>
+                <div class="list-group ">
+                    <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('ACB')">ACB</button>
+                    <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('Greek')">Greek</button>
+                    <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('Champions')">Champions</button>
+                    <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('NBA')">NBA</button>
+                    <button class="list-group-item list-group-item-action text-bg-success" (click)="LoadBasket('EuroBasket')">EuroBasket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

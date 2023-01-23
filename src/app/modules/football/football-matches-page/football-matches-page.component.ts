@@ -20,8 +20,8 @@ export class FootballMatchesPageComponent {
   ){}
 
   ngOnInit(){
-    this.route_.paramMap.subscribe(params => {
-      this.actualLeague = params.get('league');
+    this.route_.queryParams.subscribe(params => {
+      this.actualLeague = params['league'];
     });
     if(this.actualLeague != null){
       this.store_.dispatch(LoadingFootballMatches({League: this.actualLeague}));

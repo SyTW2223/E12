@@ -1,5 +1,6 @@
+import { HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { BasketMatchInterface } from 'src/app/core/models/basket.interface';
@@ -20,8 +21,8 @@ export class BasketMatchesPageComponent {
   ){}
 
   ngOnInit(){
-    this.route_.paramMap.subscribe(params => {
-      this.actualLeague = params.get('league');
+    this.route_.queryParams.subscribe(params => {
+      this.actualLeague = params['league'];
     });
     if(this.actualLeague != null){
       this.store_.dispatch(LoadingBasketMatches({League: this.actualLeague}));

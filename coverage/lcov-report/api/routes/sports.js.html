@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.39% </span>
+                <span class="strong">7.28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/338</span>
+                <span class='fraction'>25/343</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.39% </span>
+                <span class="strong">7.28% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/338</span>
+                <span class='fraction'>25/343</span>
             </div>
         
             
@@ -897,7 +897,12 @@
 <a name='L832'></a><a href='#L832'>832</a>
 <a name='L833'></a><a href='#L833'>833</a>
 <a name='L834'></a><a href='#L834'>834</a>
-<a name='L835'></a><a href='#L835'>835</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L835'></a><a href='#L835'>835</a>
+<a name='L836'></a><a href='#L836'>836</a>
+<a name='L837'></a><a href='#L837'>837</a>
+<a name='L838'></a><a href='#L838'>838</a>
+<a name='L839'></a><a href='#L839'>839</a>
+<a name='L840'></a><a href='#L840'>840</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -946,6 +951,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -984,6 +990,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1021,6 +1028,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1057,6 +1065,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1093,6 +1102,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1778,7 +1788,8 @@ router.get('/basket', <span class="fstat-no" title="function not covered" >(r</s
 &nbsp;
 &nbsp;
 //Standings
-router.get('/basket/nba', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/NBA', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+  const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
   const options = <span class="cstat-no" title="statement not covered" >{</span>
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -1816,7 +1827,8 @@ router.get('/basket/nba', <span class="fstat-no" title="function not covered" >(
 });
 &nbsp;
 &nbsp;
-router.get('/basket/acb', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/ACB', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+  const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
   const options = <span class="cstat-no" title="statement not covered" >{</span>
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -1853,7 +1865,8 @@ router.get('/basket/acb', <span class="fstat-no" title="function not covered" >(
 });
 &nbsp;
 &nbsp;
-router.get('/basket/eurobasket', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/EuroBasket', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+  const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
   const options = <span class="cstat-no" title="statement not covered" >{</span>
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -1889,7 +1902,8 @@ router.get('/basket/eurobasket', <span class="fstat-no" title="function not cove
 <span class="cstat-no" title="statement not covered" >requ.end();</span>
 });
 &nbsp;
-router.get('/basket/greek', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/Greek', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+  const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
   const options = <span class="cstat-no" title="statement not covered" >{</span>
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -1926,7 +1940,8 @@ router.get('/basket/greek', <span class="fstat-no" title="function not covered" 
 <span class="cstat-no" title="statement not covered" >requ.end();</span>
 });
 &nbsp;
-router.get('/basket/champions', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/Champions', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+  const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
   const options = <span class="cstat-no" title="statement not covered" >{</span>
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -1964,7 +1979,7 @@ router.get('/basket/champions', <span class="fstat-no" title="function not cover
 });
 &nbsp;
 //Games
-router.get('/basket/acb/games', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/ACB/games', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
   const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
 &nbsp;
   const options = <span class="cstat-no" title="statement not covered" >{</span>
@@ -2004,7 +2019,7 @@ router.get('/basket/acb/games', <span class="fstat-no" title="function not cover
 <span class="cstat-no" title="statement not covered" >  requ.end();</span>
 });
 &nbsp;
-router.get('/basket/nba/games', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/NBA/games', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
   const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
 &nbsp;
   const options = <span class="cstat-no" title="statement not covered" >{</span>
@@ -2041,14 +2056,14 @@ router.get('/basket/nba/games', <span class="fstat-no" title="function not cover
 <span class="cstat-no" title="statement not covered" >  requ.end();</span>
 });
 &nbsp;
-router.get('/basket/acb/eurobasket', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/EuroBasket/games', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
   const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
 &nbsp;
   const options = <span class="cstat-no" title="statement not covered" >{</span>
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
     "port": null,
-    "path": "/games?season=2022-2023&amp;league=117",
+    "path": "/games?season=2022-2023&amp;league=120",
     "headers": {
       "X-RapidAPI-Key": "856ee9b690mshcfdc2e7c3a13635p19058ejsnc44e62d11ec6",
       "X-RapidAPI-Host": "api-basketball.p.rapidapi.com",
@@ -2081,7 +2096,7 @@ router.get('/basket/acb/eurobasket', <span class="fstat-no" title="function not 
 <span class="cstat-no" title="statement not covered" >  requ.end();</span>
 });
 &nbsp;
-router.get('/basket/greek/games', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/Greek/games', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
   const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
 &nbsp;
   const options = <span class="cstat-no" title="statement not covered" >{</span>
@@ -2121,7 +2136,7 @@ router.get('/basket/greek/games', <span class="fstat-no" title="function not cov
 <span class="cstat-no" title="statement not covered" >  requ.end();</span>
 });
 &nbsp;
-router.get('/basket/champions/games', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+router.get('/basket/Champions/games', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
   const http = <span class="cstat-no" title="statement not covered" >require("https");</span>
 &nbsp;
   const options = <span class="cstat-no" title="statement not covered" >{</span>
@@ -2572,7 +2587,7 @@ module.exports = router;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-22T21:26:12.150Z
+                at 2023-01-23T10:37:49.720Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

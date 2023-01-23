@@ -1,6 +1,9 @@
-const request = require('supertest')
+const supertest = require('supertest');
+const express = require('express');
 const app = require('../app');
+
 const mongoose = require("mongoose");
+
 
 
 mongoose.connect('mongodb://equipo12:equipo12@172.16.130.61:27017/Proyecto', {
@@ -13,8 +16,8 @@ let token_usuario = ""
 
 describe('Posts funcionan', () => {
     it('Autenticacion de un usuario', async () => {
-        const res = await request(app)
-        .post('users/authenticate')
+        const res = await supertest(app)
+        .post('/users/authenticate')
         .set('Content-Type', 'application/json')
         .set('Accept', '*/*')
         .send({

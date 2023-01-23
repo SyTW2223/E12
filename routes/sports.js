@@ -45,7 +45,8 @@ router.get('/basket', (req, res) => {
 
 
 //Standings
-router.get('/basket/nba', (req, res) => {
+router.get('/basket/NBA', (req, res) => {
+  const http = require("https");
   const options = {
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -83,7 +84,8 @@ requ.end();
 });
 
 
-router.get('/basket/acb', (req, res) => {
+router.get('/basket/ACB', (req, res) => {
+  const http = require("https");
   const options = {
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -120,7 +122,8 @@ requ.end();
 });
 
 
-router.get('/basket/eurobasket', (req, res) => {
+router.get('/basket/EuroBasket', (req, res) => {
+  const http = require("https");
   const options = {
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -156,7 +159,8 @@ router.get('/basket/eurobasket', (req, res) => {
 requ.end();
 });
 
-router.get('/basket/greek', (req, res) => {
+router.get('/basket/Greek', (req, res) => {
+  const http = require("https");
   const options = {
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -193,7 +197,8 @@ router.get('/basket/greek', (req, res) => {
 requ.end();
 });
 
-router.get('/basket/champions', (req, res) => {
+router.get('/basket/Champions', (req, res) => {
+  const http = require("https");
   const options = {
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
@@ -231,7 +236,7 @@ requ.end();
 });
 
 //Games
-router.get('/basket/acb/games', (req, res) => {
+router.get('/basket/ACB/games', (req, res) => {
   const http = require("https");
 
   const options = {
@@ -271,7 +276,7 @@ router.get('/basket/acb/games', (req, res) => {
   requ.end();
 });
 
-router.get('/basket/nba/games', (req, res) => {
+router.get('/basket/NBA/games', (req, res) => {
   const http = require("https");
 
   const options = {
@@ -308,14 +313,14 @@ router.get('/basket/nba/games', (req, res) => {
   requ.end();
 });
 
-router.get('/basket/acb/eurobasket', (req, res) => {
+router.get('/basket/EuroBasket/games', (req, res) => {
   const http = require("https");
 
   const options = {
     "method": "GET",
     "hostname": "api-basketball.p.rapidapi.com",
     "port": null,
-    "path": "/games?season=2022-2023&league=117",
+    "path": "/games?season=2022-2023&league=120",
     "headers": {
       "X-RapidAPI-Key": "856ee9b690mshcfdc2e7c3a13635p19058ejsnc44e62d11ec6",
       "X-RapidAPI-Host": "api-basketball.p.rapidapi.com",
@@ -348,7 +353,7 @@ router.get('/basket/acb/eurobasket', (req, res) => {
   requ.end();
 });
 
-router.get('/basket/greek/games', (req, res) => {
+router.get('/basket/Greek/games', (req, res) => {
   const http = require("https");
 
   const options = {
@@ -388,7 +393,7 @@ router.get('/basket/greek/games', (req, res) => {
   requ.end();
 });
 
-router.get('/basket/champions/games', (req, res) => {
+router.get('/basket/Champions/games', (req, res) => {
   const http = require("https");
 
   const options = {

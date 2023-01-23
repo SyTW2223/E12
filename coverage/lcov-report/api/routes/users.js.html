@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.26% </span>
+                <span class="strong">53.65% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/41</span>
+                <span class='fraction'>22/41</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>4/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">61.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/36</span>
+                <span class='fraction'>22/36</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -145,7 +145,8 @@
 <a name='L80'></a><a href='#L80'>80</a>
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -188,22 +189,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -227,6 +228,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
@@ -268,24 +270,24 @@ router.post('/register', <span class="fstat-no" title="function not covered" >as
 &nbsp;
 //Authenticate
 //### ESTO ES PARA HACERLO CON CONTRASEÑAS HASHEADAS DE FORMA MAS SEGURA PERO NO FUNCIONA###
-router.post('/authenticate', <span class="fstat-no" title="function not covered" >(r</span>eq, res, next) =&gt; {
+router.post('/authenticate', (req, res, next) =&gt; {
   //console.log(req)
-  const username = <span class="cstat-no" title="statement not covered" >req.body.username;</span>
-  const password = <span class="cstat-no" title="statement not covered" >req.body.password;</span>
+  const username = req.body.username;
+  const password = req.body.password;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  User.findOne({username}, <span class="fstat-no" title="function not covered" >(e</span>rr, user) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (err) <span class="cstat-no" title="statement not covered" >throw err;</span></span>
-<span class="cstat-no" title="statement not covered" >    if (!user) {</span>
+  User.findOne({username}, (err, user) =&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >throw err;</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!user) {
 <span class="cstat-no" title="statement not covered" >      return res.status(404).json({success: false, msg: 'Usuario no encontrado'});</span>
     }
-<span class="cstat-no" title="statement not covered" >      User.comparePassword(password, user.password, <span class="fstat-no" title="function not covered" >(e</span>rr, isMatch) =&gt; { //isMatch Devuelve si las contraseñas coinciden </span>
-<span class="cstat-no" title="statement not covered" >        if (err) <span class="cstat-no" title="statement not covered" >throw err;</span></span>
-<span class="cstat-no" title="statement not covered" >        if (isMatch) {</span>
-          const token = <span class="cstat-no" title="statement not covered" >jwt.sign({user}, config.secret, {</span>
+      User.comparePassword(password, user.password, (err, isMatch) =&gt; { //isMatch Devuelve si las contraseñas coinciden 
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >throw err;</span>
+        if (isMatch) {
+          const token = jwt.sign({user}, config.secret, {
             expiresIn: 604800 //1 semana en segundos
           });
           
-<span class="cstat-no" title="statement not covered" >          res.status(200).json({</span>
+          res.status(200).json({
             success: true,
             msg: 'Autenticacion realizada correctamente',
             token: 'JWT ' + token,
@@ -296,7 +298,7 @@ router.post('/authenticate', <span class="fstat-no" title="function not covered"
               email: user.email
             }
           });
-        } else {
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >          return res.status(401).json({ success: false, msg: 'Contraseña incorrecta' });</span>
         }
   });
@@ -309,6 +311,7 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), <span clas
 }); 
 &nbsp;
 module.exports = router;
+&nbsp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -316,7 +319,7 @@ module.exports = router;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-22T21:26:12.150Z
+                at 2023-01-23T10:37:49.720Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

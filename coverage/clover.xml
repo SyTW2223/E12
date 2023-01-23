@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674470269759" clover="3.2.0">
-  <project timestamp="1674470269759" name="All files">
-    <metrics statements="465" coveredstatements="100" conditionals="90" coveredconditionals="5" methods="138" coveredmethods="7" elements="693" coveredelements="112" complexity="0" loc="465" ncloc="465" packages="4" files="6" classes="6"/>
+<coverage generated="1674470905430" clover="3.2.0">
+  <project timestamp="1674470905431" name="All files">
+    <metrics statements="468" coveredstatements="102" conditionals="90" coveredconditionals="5" methods="140" coveredmethods="8" elements="698" coveredelements="115" complexity="0" loc="468" ncloc="468" packages="4" files="6" classes="6"/>
     <package name="api">
-      <metrics statements="29" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="32" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
       <file name="app.js" path="/home/usuario/InfoSport/api/app.js">
-        <metrics statements="29" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <metrics statements="32" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -16,6 +16,8 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
@@ -34,6 +36,7 @@
         <line num="58" count="1" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
         <line num="67" count="1" type="stmt"/>
       </file>
     </package>

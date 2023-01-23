@@ -60,12 +60,7 @@ router.post('/authenticate', (req, res, next) => {
             success: true,
             msg: 'Autenticacion realizada correctamente',
             token: 'JWT ' + token,
-            user: {
-              id: user._id,
-              name: user.name,
-              username: user.username,
-              email: user.email
-            }
+            username: user.username
           });
         } else {
           return res.status(401).json({ success: false, msg: 'Contraseña incorrecta' });
@@ -76,7 +71,7 @@ router.post('/authenticate', (req, res, next) => {
 
 //Profile
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => { //Lo del pasapote es para proteger la ruta 
-  res.status(200).json({user: req.user});
+  res.status(200).json(req.user);
 }); 
 
 module.exports = router;

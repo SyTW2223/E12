@@ -20,11 +20,8 @@
       <label for="SignUpInputPassword" class="form-label">Contraseña</label>
       <input type="password" class="form-control" id="SignUpInputPassword" name="password" [(ngModel)]="newUser.password">
     </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="SignUpCheck">
-      <label class="form-check-label" for="SignUpCheck">Acepta las condiciones de uso</label>
-    </div>
     <div class="text-center">
+      <label class="form-text" for="SignUpCheck">Al enviar la solicitud acepta las condiciones de uso de cookies</label>
       <button type="submit" class="btn btn-success align-center mt-3">Enviar</button>
     </div>
   </form>

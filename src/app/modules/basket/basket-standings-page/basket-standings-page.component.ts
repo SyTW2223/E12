@@ -6,10 +6,10 @@ import { LoadingBasketStandings } from 'src/app/state/actions/basket.actions';
 import { selectBasketStandings } from 'src/app/state/selectors/sport.selector';
 
 @Component({
-  selector: 'app-basket-standings',
-  templateUrl: './basket-standings.component.html'
+  selector: 'app-basket-standings-page',
+  templateUrl: './basket-standings-page.component.html'
 })
-export class BasketStandingsComponent {
+export class BasketStandingsPageComponent {
   StandingsResponse$: Observable<BasketStandingsInterface[]> = new Observable();
   actualLeague: string = 'ACB';
   

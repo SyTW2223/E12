@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { Sport } from 'src/app/core/models/sport';
-import { LeagueInterface, SportInterface } from 'src/app/core/models/sport.interface';
-import { LoadingFootball } from 'src/app/state/actions/football.actions';
-import { selectSportData } from 'src/app/state/selectors/sport.selector';
+import { LeagueInterface } from 'src/app/core/models/sport.interface';
 
 @Component({
   selector: 'app-football',

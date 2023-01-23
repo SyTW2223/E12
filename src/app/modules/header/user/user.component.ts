@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 
-import { forkJoin, map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectErrorData, selectRegisterData, selectUserData } from 'src/app/state/selectors/user.selector';
 import { Router } from '@angular/router';
 import { HttpErrorInterface, LogInResponseInterface, RegisterResponseInterface, UserInterface } from 'src/app/core/models/user.interface';
 
-function delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-  }
+function delay(ms: number){ return new Promise( resolve => setTimeout(resolve, ms) ); }
 
 @Component({
   selector: 'app-user',
@@ -18,7 +16,6 @@ export class UserComponent {
     RegisterResponse$: Observable<RegisterResponseInterface> = new Observable();
     LogInresponse$: Observable<LogInResponseInterface> = new Observable();
     HttpError$: Observable<HttpErrorInterface> = new Observable();
-    combinedData$: Observable<any> = new Observable();
 
     constructor (
         private store_: Store<any>,
@@ -32,20 +29,9 @@ export class UserComponent {
         this.RegisterResponse$ = this.store_.select(selectRegisterData);
         this.LogInresponse$ = this.store_.select(selectUserData);
         this.HttpError$ = this.store_.select(selectErrorData);
-    
-        this.combinedData$ = forkJoin([
-            this.RegisterResponse$,
-            this.LogInresponse$,
-            this.HttpError$
-        ]).pipe(
-            map(([RegisterResponse, LogInResponse, HttpError]) => {
-                return { RegisterResponse, LogInResponse, HttpError };
-            })
-        );
     }
 
     manage_login(token: string, user: UserInterface): void{
-        console.log(token, user)
         localStorage.setItem('token',token)
         localStorage.setItem('user',JSON.stringify(user))
         this.redirigir();

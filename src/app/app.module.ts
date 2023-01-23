@@ -19,14 +19,14 @@ import { ROOT_REDUCERS } from './state/app.state';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './state/effects/user.effects';
 import { FootballComponent } from './modules/football/football.component';
-import { FootballLeaguesSelectorComponent } from './modules/football/football-leagues-selector/football-leagues-selector.component';
+import { FootballMatchesPageComponent } from './modules/football/football-matches-page/football-matches-page.component';
 import { FootballStandingsPageComponent } from './modules/football/football-standings-page/football-standings-page.component';
 import { SportService } from './state/service/sport.service';
 import { SportEffects } from './state/effects/sport.effects';
 import { BasketComponent } from './modules/basket/basket.component';
 import { FooterComponent } from './modules/footer/footer.component';
 import { BasketMatchesPageComponent } from './modules/basket/basket-matches-page/basket-matches-page.component';
-import { BasketStandingsComponent } from './modules/basket/basket-standings/basket-standings.component';
+import { BasketStandingsPageComponent } from './modules/basket/basket-standings-page/basket-standings-page.component';
 
 
 @NgModule({
@@ -39,11 +39,11 @@ import { BasketStandingsComponent } from './modules/basket/basket-standings/bask
     UserLoginComponent,
     ProfileComponent,
     FootballComponent,
-    FootballLeaguesSelectorComponent,
+    FootballMatchesPageComponent,
     FootballStandingsPageComponent,
     BasketComponent,
     BasketMatchesPageComponent,
-    BasketStandingsComponent,
+    BasketStandingsPageComponent,
     FooterComponent
   ],
   imports: [

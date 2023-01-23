@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { LogInResponse } from 'src/app/core/models/user';
 import { LogInResponseInterface } from 'src/app/core/models/user.interface';
 import { selectUserData } from 'src/app/state/selectors/user.selector';
 
@@ -15,8 +13,7 @@ export class HeaderComponent {
   username: string = "Mi Usuario";
 
   constructor( 
-    private store_: Store<any>,
-    private router_: Router 
+    private store_: Store<any>
   ){}
 
   ngOnInit(){
@@ -29,7 +26,5 @@ export class HeaderComponent {
             this.username = res.user.username;
       });
     }
-
-    
   }
 }

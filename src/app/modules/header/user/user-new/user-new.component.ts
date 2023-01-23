@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output} from '@angular/core';
+import { Component} from '@angular/core';
 import { Store } from '@ngrx/store';
-import { UserDBInterface, UserRegisterInterface } from 'src/app/core/models/user.interface';
+import { UserRegisterInterface } from 'src/app/core/models/user.interface';
 import { CreateUser } from 'src/app/state/actions/user.actions';
 
 import { UserDB } from '../../../../core/models/user'
@@ -10,7 +10,6 @@ import { UserDB } from '../../../../core/models/user'
   templateUrl: './user-new.component.html'
 })
 export class UserNewComponent {
-  @Output() RegisterTry = new EventEmitter();
   newUser: UserRegisterInterface = new UserDB();
 
   constructor(private store_: Store<any>){}
@@ -20,7 +19,6 @@ export class UserNewComponent {
   create(){
     this.store_.dispatch(CreateUser({user: this.newUser}))
     this.newUser = new UserDB();
-    this.RegisterTry.emit();
   }
 
 }

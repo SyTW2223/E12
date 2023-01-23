@@ -12,7 +12,7 @@
                 [ngClass]="{'alert-danger': !LogInResponse.success && LogInResponse.msg != '', 'alert-success': LogInResponse.success}">
                     {{LogInResponse.msg}}
                 </div>
-                <div *ngIf="LogInResponse.success"> {{manage_login(LogInResponse.token, LogInResponse.user)}}</div>
+                <div *ngIf="LogInResponse.success"> {{manage_login(LogInResponse.token, LogInResponse.username)}}</div>
             </ng-container>
             <ng-container *ngIf="RegisterResponse$ | async as RegisterResponse" class="d-block">
                 <div class="alert mt-3 text-center" role="alert" 

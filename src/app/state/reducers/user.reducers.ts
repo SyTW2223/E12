@@ -1,19 +1,19 @@
 import { createReducer, on } from '@ngrx/store';
 import { UserStateInterface } from 'src/app/core/models/user.state';
-import { RegisterResponse, LogInResponse, User } from 'src/app/core/models/user';
-import { CreatedUser, CreateUser, HttpError, LogedIn, LogedOut, LogingIn } from '../actions/user.actions';
+import { RegisterResponse, LogInResponse, User, ProfileResponse } from 'src/app/core/models/user';
+import { CreatedUser, CreateUser, HttpError, LoadedProfile, LoadProfile, LogedIn, LogingIn } from '../actions/user.actions';
 import { HttpErrorResponse, HttpResponseBase } from '@angular/common/http';
 
 let token: string | null =  localStorage.getItem('token');
-let user: string | null =  localStorage.getItem('user');
-let initial: LogInResponse
-    if(typeof(token) === 'string' && typeof(user) === 'string'){
-      initial = new LogInResponse(true, 'Usuario actualmente identificado', token, JSON.parse(user));
-    }else{
-      initial = new LogInResponse()
-    }
+let username: string | null =  localStorage.getItem('username');
+let initial: LogInResponse;
+
+if(typeof(token) === 'string' && typeof(username) === 'string')
+  initial = new LogInResponse(true, 'Usuario actualmente identificado', token, username);
+else
+  initial = new LogInResponse()
     
-export const initialState: UserStateInterface = {LogInResponse: initial, CreationResponse: new RegisterResponse(), HttpError: new HttpErrorResponse({status: 999})}
+export const initialState: UserStateInterface = {LogInResponse: initial, CreationResponse: new RegisterResponse(), ProfileInformation: new ProfileResponse(), HttpError: new HttpErrorResponse({status: 999})}
 
 export const userReducer = createReducer(
   initialState,
@@ -29,22 +29,13 @@ export const userReducer = createReducer(
   on(CreatedUser, (state, {CreationResponse}) => {
     return { ...state, CreationResponse}
   }),
+  on(LoadProfile, (state) => {
+    return { ...state, ProfileInformation: new ProfileResponse(), HttpError: new HttpErrorResponse({status: 999})}
+  }),
+  on(LoadedProfile, (state, {ProfileResponse}) => {
+    return { ...state, ProfileInformation: ProfileResponse}
+  }),
   on(HttpError, (state, {Error}) => {
     return { ...state, HttpError: Error}
-  }),
-  on(LogedOut, (state) => {
-    return { ...state, LogInResponse: new LogInResponse()}
   })
 );
-
-// export const CreatedReducer = createReducer(
-//   initialState,
-  
-// );
-
-// export const LogedOutReducer = createReducer(
-//   initialState,
-//   on(LogedIn, (state, {LogInResponse}) => {
-//     return { ...state, LogInResponse}
-//   })
-// );

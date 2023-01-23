@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LogInResponseInterface } from 'src/app/core/models/user.interface';
-import { selectUserData } from 'src/app/state/selectors/user.selector';
+import { selectLogInData } from 'src/app/state/selectors/user.selector';
 
 @Component({
   selector: 'app-header',
@@ -17,13 +17,13 @@ export class HeaderComponent {
   ){}
 
   ngOnInit(){
-    let user: string | null =  localStorage.getItem('user');
-    if(typeof(user) === 'string')
-      this.username = JSON.parse(user).username;
+    let username: string | null =  localStorage.getItem('username');
+    if(typeof(username) === 'string')
+      this.username = username;
     else{
-      this.LogInresponse$ = this.store_.select(selectUserData);
+      this.LogInresponse$ = this.store_.select(selectLogInData);
         this.LogInresponse$.subscribe((res) => {
-            this.username = res.user.username;
+            this.username = res.username;
       });
     }
   }

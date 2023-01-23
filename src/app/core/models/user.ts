@@ -1,5 +1,3 @@
-import { HttpEventType, HttpHeaders, HttpResponseBase } from "@angular/common/http";
-
 export class UserDB {
     constructor (
         public name: string = "",
@@ -36,10 +34,17 @@ export class LogInResponse{
         public success: boolean = false,
         public msg: string = "",
         public token: string = "",
-        public user: User = new User("","","","Mi Usuario")
+        public username: string = "Mi Usuario"
     ){}
 }
 
-// FLUX
-// ngrx librería para conectar con backend
-// librería Axios
+export class ProfileResponse{
+    constructor(
+        public _id: string = "",
+        public name: string = "",
+        public email: string = "",
+        public username: string = "",
+        public password: string = "",
+        public __v: number = 0
+    ){}
+}

@@ -38,7 +38,21 @@ export interface LogInResponseInterface{
     success: boolean
     msg: string
     token: string 
-    user: UserInterface
+    username: string
+}
+
+export interface ProfileEffectInterface{
+    type: string 
+    token: string 
+}
+
+export interface ProfileResponseInterface{
+    _id: string,
+    name: string,
+    email: string,
+    username: string,
+    password: string,
+    __v: number
 }
 
 export interface HttpErrorInterface{
@@ -50,7 +64,3 @@ export interface HttpErrorInterface{
     type: HttpEventType.Response | HttpEventType.ResponseHeader
     error: any
 }
-
-// FLUX
-// ngrx librería para conectar con backend
-// librería Axios

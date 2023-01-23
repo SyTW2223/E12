@@ -22,9 +22,12 @@ export class UserEffects {
     catchError(async (Error) => ({ type: '[header] Http Error', Error }))
   ));
 
-  LogOut$ = createEffect(() => this.actions$.pipe(
-    ofType('[header] Loging Out'),
-    map(() => ({type: '[header] Loged Out'}))
+  UserProfile$ = createEffect(() => this.actions$.pipe(
+    ofType('[header] Load Profile'),
+    mergeMap(action => this.userService.profile(action).pipe(
+      map(ProfileResponse => ({type: '[header] Loaded Profile', ProfileResponse}))
+    )),
+    catchError(async (Error) => ({ type: '[header] Http Error', Error }))
   ));
 
   constructor(

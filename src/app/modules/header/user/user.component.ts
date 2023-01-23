@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectErrorData, selectRegisterData, selectUserData } from 'src/app/state/selectors/user.selector';
+import { selectErrorData, selectLogInData, selectRegisterData } from 'src/app/state/selectors/user.selector';
 import { Router } from '@angular/router';
 import { HttpErrorInterface, LogInResponseInterface, RegisterResponseInterface, UserInterface } from 'src/app/core/models/user.interface';
 
@@ -27,13 +27,13 @@ export class UserComponent {
             this.router_.navigate(['profile']);
 
         this.RegisterResponse$ = this.store_.select(selectRegisterData);
-        this.LogInresponse$ = this.store_.select(selectUserData);
+        this.LogInresponse$ = this.store_.select(selectLogInData);
         this.HttpError$ = this.store_.select(selectErrorData);
     }
 
-    manage_login(token: string, user: UserInterface): void{
+    manage_login(token: string, username: string): void{
         localStorage.setItem('token',token)
-        localStorage.setItem('user',JSON.stringify(user))
+        localStorage.setItem('username',username)
         this.redirigir();
     }
 

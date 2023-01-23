@@ -6,7 +6,7 @@
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
                             <img src="assets/icons8-user-96.png" class="rounded-circle p-1 bg-info">
-                            <div class="mt-3">
+                            <div class="mt-3" *ngIf="ProfileResponse$ | async as user">
                                 <h4>{{user.name}}</h4>
                                 <p class="text-secondary mb-1">Amante de la competición</p>
                             </div>
@@ -16,7 +16,7 @@
             </div>
             <div class="col-lg-8">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" *ngIf="ProfileResponse$ | async as user">
                         <h4 class="text-center mb-4">Datos</h4>
                         <div class="row mb-3">
                             <div class="col-sm-3">

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { UserInterface } from 'src/app/core/models/user.interface';
-import { LogingOut } from 'src/app/state/actions/user.actions';
+import { Observable } from 'rxjs';
+import { ProfileResponseInterface, UserInterface } from 'src/app/core/models/user.interface';
+import { LoadProfile } from 'src/app/state/actions/user.actions';
+import { selectProfileData } from 'src/app/state/selectors/user.selector';
 import { User } from '../../../core/models/user';
 
 @Component({
@@ -10,24 +12,24 @@ import { User } from '../../../core/models/user';
   templateUrl: './profile.component.html'
 })
 export class ProfileComponent {
-  user: UserInterface = new User();
+  ProfileResponse$: Observable<ProfileResponseInterface> = new Observable();
 
   constructor(
     private store_: Store<any>,
     private router_: Router
   ){}
 
-  ngOnInit(){
-    let localuser: string | null =  localStorage.getItem('user');    
-    if(typeof(localuser) === 'string'){
-      this.user = JSON.parse(localuser);
-    } else 
+  ngOnInit(){   
+    let token: string | null = localStorage.getItem('token')
+    if(token)
+      this.store_.dispatch(LoadProfile({token}));
+    else
       this.router_.navigate(['home']);
+    this.ProfileResponse$ = this.store_.select(selectProfileData);
   }
 
   async logOut(){
-    this.store_.dispatch(LogingOut());
-    localStorage.removeItem('user')
+    localStorage.removeItem('username')
     localStorage.removeItem('token')
   }
 }
